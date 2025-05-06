@@ -1,9 +1,11 @@
 trigger:
-- main
-
+  branches:
+    include:
+      - main
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: 'ubuntu-latest'
 steps:
-- script: echo "Hello, Azure Pipelines!"
-  displayName: 'Run a one-line script'
+  - script: |
+      npm install
+      npm test
+    displayName: 'Install Dependencies and Run Tests'
